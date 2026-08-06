@@ -1,0 +1,28 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rj-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="rj-grad-text" x1="0" y1="0" x2="64" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.92)"/>
+    </linearGradient>
+  </defs>
+  <!-- Background with gradient -->
+  <rect width="64" height="64" rx="16" fill="url(#rj-grad)"/>
+  <!-- Subtle inner glow -->
+  <rect width="64" height="64" rx="16" fill="url(#rj-grad)" opacity="0.3"/>
+  <!-- RJ lettermark -->
+  <text
+    x="32"
+    y="43"
+    dominant-baseline="auto"
+    text-anchor="middle"
+    fill="white"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="28"
+    font-weight="900"
+    letter-spacing="-1.5"
+  >RJ</text>
+</svg>
