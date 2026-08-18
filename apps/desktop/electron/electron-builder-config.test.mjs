@@ -31,7 +31,7 @@ describe("Electron distribution configs", () => {
     const config = await readConfig("electron-builder.yml");
     assert.equal(config.extends, "./electron-builder.base.yml");
     assert.equal(config.appId, "com.differentai.openwork");
-    assert.equal(config.productName, "OpenWork");
+    assert.equal(config.productName, "RJ Business Solutions");
     assert.equal(config.protocols[0].schemes[0], "openwork");
     assert.equal(config.artifactName, "openwork-${os}-${arch}-${version}.${ext}");
   });

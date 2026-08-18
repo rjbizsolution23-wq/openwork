@@ -37,7 +37,7 @@ export type ShellConfig = {
 /* ------------------------------------------------------------------ */
 
 export const DEFAULT_SHELL_CONFIG: ShellConfig = {
-  appName: "OpenWork",
+  appName: "RJ Business Solutions",
   statusBar: true,
   sidebar: true,
   docsButton: true,

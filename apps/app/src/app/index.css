@@ -9,9 +9,14 @@
 
 @import "katex/dist/katex.min.css";
 
-@import "@fontsource-variable/geist";
-
-@import "@fontsource-variable/ibm-plex-sans";
+/* RJ Business Solutions — Poppins (headings) + Inter (body) + Space Grotesk (mono/data) */
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
 
 @source "../../index.html";
 @source "../";
@@ -90,36 +95,51 @@
   }
 }
 
+/* ============================================================
+   RJ BUSINESS SOLUTIONS — DESIGN TOKENS
+   Primary: Cyan #06b6d4 → Pink #ec4899
+   Dark bg: #030712
+   ============================================================ */
+
 :root {
   color-scheme: light;
-  --dls-surface: var(--slate-1);
-  --dls-sidebar: var(--slate-2);
-  --dls-app-bg: var(--slate-1);
-  --dls-background: var(--slate-1);
-  --dls-canvas: var(--slate-2);
-  --dls-surface-muted: var(--slate-3);
-  --dls-border: #f3f4f6;
-  --dls-accent: #011627;
-  --dls-accent-hover: #000000;
+  /* RJ brand gradient */
+  --rj-gradient: linear-gradient(135deg, #06b6d4 0%, #ec4899 100%);
+  --rj-gradient-subtle: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(236,72,153,0.12) 100%);
+  --rj-cyan: #06b6d4;
+  --rj-pink: #ec4899;
+  --rj-cyan-hover: #0891b2;
+  --rj-pink-hover: #db2777;
+
+  --dls-surface: #ffffff;
+  --dls-sidebar: #f8fafc;
+  --dls-app-bg: #ffffff;
+  --dls-background: #ffffff;
+  --dls-canvas: #f8fafc;
+  --dls-surface-muted: #f1f5f9;
+  --dls-border: #e2e8f0;
+  /* RJ primary accent — cyan */
+  --dls-accent: #06b6d4;
+  --dls-accent-hover: #0891b2;
   --dls-accent-fg: #ffffff;
-  --dls-accent-rgb: 1 22 39;
-  --dls-secondary-rgb: 96 100 108;
+  --dls-accent-rgb: 6 182 212;
+  --dls-secondary-rgb: 100 116 139;
   --dls-text-primary: var(--slate-12);
   --dls-text-secondary: var(--slate-11);
   --dls-hover: var(--slate-3);
   --dls-active: var(--slate-5);
   --dls-radius: 16px;
   --dls-radius-lg: 24px;
-  --dls-shell-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-  --dls-card-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-  --background: var(--slate-1);
+  --dls-shell-shadow: 0 10px 30px rgba(6, 182, 212, 0.08);
+  --dls-card-shadow: 0 8px 24px rgba(6, 182, 212, 0.06);
+  --background: #ffffff;
   --foreground: var(--slate-12);
-  --card: var(--slate-1);
+  --card: #ffffff;
   --card-foreground: var(--slate-12);
-  --popover: var(--slate-1);
+  --popover: #ffffff;
   --popover-foreground: var(--slate-12);
   --popover-border: var(--slate-5);
-  --primary: var(--blue-9);
+  --primary: #06b6d4;
   --primary-foreground: white;
   --secondary: var(--slate-3);
   --secondary-foreground: var(--slate-12);
@@ -131,43 +151,78 @@
   --warning: var(--amber-11);
   --border: var(--slate-5);
   --input: var(--slate-6);
-  --ring: var(--slate-8);
-  --chart-1: var(--sky-9);
-  --chart-2: var(--blue-9);
-  --chart-3: var(--indigo-9);
-  --chart-4: var(--violet-9);
+  --ring: #06b6d4;
+  --chart-1: #06b6d4;
+  --chart-2: #ec4899;
+  --chart-3: var(--violet-9);
+  --chart-4: var(--indigo-9);
   --chart-5: var(--purple-9);
   --radius: 0.45rem;
-  --sidebar: var(--slate-2);
+  --sidebar: #f8fafc;
   --sidebar-foreground: var(--slate-12);
-  --sidebar-primary: var(--blue-9);
+  --sidebar-primary: #06b6d4;
   --sidebar-primary-foreground: white;
   --sidebar-accent: var(--slate-3);
   --sidebar-accent-foreground: var(--slate-12);
   --sidebar-border: var(--slate-6);
-  --sidebar-ring: var(--slate-8);
+  --sidebar-ring: #06b6d4;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --dls-surface: var(--slate-1);
-  --dls-sidebar: var(--slate-2);
-  --dls-app-bg: var(--slate-1);
-  --dls-background: var(--slate-1);
-  --dls-canvas: var(--slate-2);
-  --dls-surface-muted: var(--slate-3);
-  --dls-border: #262626;
-  --dls-accent: #011627;
-  --dls-accent-hover: #0a2540;
+  /* RJ dark mode — #030712 base */
+  --dls-surface: #030712;
+  --dls-sidebar: #050d1a;
+  --dls-app-bg: #030712;
+  --dls-background: #030712;
+  --dls-canvas: #070f1f;
+  --dls-surface-muted: #0d1829;
+  --dls-border: #1a2744;
+  /* RJ cyan accent in dark mode */
+  --dls-accent: #06b6d4;
+  --dls-accent-hover: #0891b2;
   --dls-accent-fg: #ffffff;
-  --dls-accent-rgb: 1 22 39;
-  --dls-secondary-rgb: 176 180 186;
-  --dls-text-primary: var(--slate-12);
-  --dls-text-secondary: var(--slate-11);
-  --dls-hover: var(--slate-3);
-  --dls-active: var(--slate-5);
-  --dls-shell-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
-  --dls-card-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+  --dls-accent-rgb: 6 182 212;
+  --dls-secondary-rgb: 148 163 184;
+  --dls-text-primary: #f1f5f9;
+  --dls-text-secondary: #94a3b8;
+  --dls-hover: #0d1829;
+  --dls-active: #162035;
+  --dls-shell-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+  --dls-card-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+  --background: #030712;
+  --foreground: #f1f5f9;
+  --card: #070f1f;
+  --card-foreground: #f1f5f9;
+  --popover: #070f1f;
+  --popover-foreground: #f1f5f9;
+  --popover-border: #1a2744;
+  --primary: #06b6d4;
+  --primary-foreground: #030712;
+  --secondary: #0d1829;
+  --secondary-foreground: #f1f5f9;
+  --muted: #0d1829;
+  --muted-foreground: #64748b;
+  --accent: #0d1829;
+  --accent-foreground: #f1f5f9;
+  --destructive: var(--red-9);
+  --warning: var(--amber-11);
+  --border: #1a2744;
+  --input: #162035;
+  --ring: #06b6d4;
+  --chart-1: #06b6d4;
+  --chart-2: #ec4899;
+  --chart-3: var(--violet-9);
+  --chart-4: var(--indigo-9);
+  --chart-5: var(--purple-9);
+  --sidebar: #050d1a;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #06b6d4;
+  --sidebar-primary-foreground: #030712;
+  --sidebar-accent: #0d1829;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #1a2744;
+  --sidebar-ring: #06b6d4;
 }
 
 html,
@@ -188,6 +243,8 @@ html {
 body {
   margin: 0;
   font-family:
+    "Inter Variable",
+    "Inter",
     -apple-system,
     BlinkMacSystemFont,
     system-ui,
@@ -196,9 +253,7 @@ body {
     Roboto,
     "Helvetica Neue",
     Arial,
-    "Noto Sans",
-    "Apple Color Emoji",
-    "Segoe UI Emoji";
+    sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: var(--dls-text-primary);
@@ -226,14 +281,11 @@ body {
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
-/* KaTeX sets its own absolute font-size; keep formulas at the surrounding text size
-   so inline math does not tower over the sentence it sits in. */
 .markdown-content .katex {
   font-size: 1.1em;
   color: inherit;
 }
 
-/* Long formulas scroll instead of overflowing the message bubble. */
 .markdown-content .katex-display {
   margin: 1rem 0;
   overflow-x: auto;
@@ -252,7 +304,6 @@ body {
   box-shadow: var(--dls-shell-shadow);
 }
 
-/* Arc-style overflow: long labels fade out instead of showing an ellipsis. */
 .ow-fade-truncate {
   overflow: hidden;
   white-space: nowrap;
@@ -260,7 +311,6 @@ body {
   mask-image: linear-gradient(to right, black calc(100% - 18px), transparent);
 }
 
-/* Session titles move once from their resting edge; the row and controls stay fixed. */
 .ow-session-title-moving {
   mask-image: linear-gradient(to right, transparent, black 10px, black calc(100% - 10px), transparent);
 }
@@ -282,19 +332,21 @@ body {
   border-radius: 1.5rem;
 }
 
+/* RJ branded primary button — cyan with gradient glow */
 .ow-button-primary {
   display: inline-flex;
   min-height: 48px;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: var(--dls-accent);
+  background: var(--rj-gradient);
   color: white;
-  box-shadow: 0 8px 20px -16px rgba(var(--dls-accent-rgb), 0.45);
+  box-shadow: 0 8px 24px -8px rgba(6, 182, 212, 0.5);
 }
 
 .ow-button-primary:hover:not(:disabled) {
-  background: var(--dls-accent-hover);
+  background: linear-gradient(135deg, #0891b2 0%, #db2777 100%);
+  box-shadow: 0 12px 32px -8px rgba(6, 182, 212, 0.6);
 }
 
 .ow-button-secondary {
@@ -318,7 +370,7 @@ body {
   padding: 0.75rem 1.25rem;
   font-size: 13px;
   font-weight: 500;
-  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease, opacity 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease, opacity 150ms ease, box-shadow 150ms ease;
 }
 
 .ow-button-primary:active:not(:disabled),
@@ -384,21 +436,20 @@ body {
   width: 100%;
   border: 0;
   border-radius: 0.9rem;
-  background: var(--slate-1);
-  box-shadow: inset 0 0 0 1px var(--slate-6);
+  background: var(--dls-surface);
+  box-shadow: inset 0 0 0 1px var(--dls-border);
   color: var(--dls-text-primary);
 }
 
 .ow-input::placeholder {
-  color: var(--slate-11);
+  color: var(--dls-text-secondary);
 }
 
 .ow-input:focus {
   outline: none;
-  box-shadow: inset 0 0 0 1px rgba(var(--dls-accent-rgb), 0.28), 0 0 0 3px rgba(var(--dls-accent-rgb), 0.08);
+  box-shadow: inset 0 0 0 1px rgba(6, 182, 212, 0.5), 0 0 0 3px rgba(6, 182, 212, 0.12);
 }
 
-/* Global clickable elements pointer */
 button,
 [role="button"],
 a,
@@ -437,25 +488,24 @@ select:disabled {
   animation: soft-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Highlight animation for just-saved command */
 @keyframes command-highlight {
   0% {
-    box-shadow: 0 0 0 0 var(--indigo-a9);
-    border-color: var(--indigo-a9);
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.8);
+    border-color: rgba(6, 182, 212, 0.9);
   }
   50% {
-    box-shadow: 0 0 0 8px var(--indigo-a1);
-    border-color: var(--indigo-a7);
+    box-shadow: 0 0 0 8px rgba(6, 182, 212, 0.05);
+    border-color: rgba(6, 182, 212, 0.5);
   }
   100% {
-    box-shadow: 0 0 0 0 var(--indigo-a1);
-    border-color: var(--slate-a3);
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+    border-color: var(--dls-border);
   }
 }
 
 .command-just-saved {
   animation: command-highlight 2s ease-out;
-  border-color: var(--indigo-a9);
+  border-color: rgba(6, 182, 212, 0.9);
 }
 
 @keyframes progress-shimmer {
@@ -471,8 +521,7 @@ select:disabled {
   animation: progress-shimmer 2s infinite linear;
 }
 
-/* Quiet text shimmer for lightweight loading hints (e.g. cloud worker
-   sessions catching up): a soft highlight sweeps across muted text. */
+/* RJ cyan-pink text shimmer */
 @keyframes ow-text-shimmer {
   0% {
     background-position: 150% 0;
@@ -485,11 +534,11 @@ select:disabled {
 @utility ow-text-shimmer {
   background-image: linear-gradient(
     90deg,
-    rgb(var(--dls-secondary-rgb) / 0.7) 0%,
-    rgb(var(--dls-secondary-rgb) / 0.7) 42%,
-    var(--dls-text-primary) 50%,
-    rgb(var(--dls-secondary-rgb) / 0.7) 58%,
-    rgb(var(--dls-secondary-rgb) / 0.7) 100%
+    #06b6d4 0%,
+    #ec4899 40%,
+    #f1f5f9 50%,
+    #ec4899 60%,
+    #06b6d4 100%
   );
   background-size: 200% 100%;
   background-clip: text;
@@ -498,39 +547,35 @@ select:disabled {
   animation: ow-text-shimmer 2.4s linear infinite;
 }
 
-/* Quiet, small dot ticker (`:: :: ::`). Each dot pulses briefly in sequence,
-   illuminating left-to-right like a subtle running light. Used for boot,
-   "awaiting first token", and any idle-but-alive hint. */
+/* RJ cyan dot ticker */
 @keyframes ow-dot-ticker {
   0% {
-    background-color: rgb(var(--dls-secondary-rgb) / 0.22);
-    box-shadow: 0 0 0 rgb(var(--dls-accent-rgb) / 0);
+    background-color: rgba(6, 182, 212, 0.18);
+    box-shadow: 0 0 0 rgba(6, 182, 212, 0);
   }
   20% {
-    background-color: rgb(var(--dls-accent-rgb) / 0.95);
-    box-shadow: 0 0 8px rgb(var(--dls-accent-rgb) / 0.45);
+    background-color: #06b6d4;
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
   }
   55%,
   100% {
-    background-color: rgb(var(--dls-secondary-rgb) / 0.22);
-    box-shadow: 0 0 0 rgb(var(--dls-accent-rgb) / 0);
+    background-color: rgba(6, 182, 212, 0.18);
+    box-shadow: 0 0 0 rgba(6, 182, 212, 0);
   }
 }
 
 .ow-dot-ticker {
   animation: ow-dot-ticker 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  background-color: rgb(var(--dls-secondary-rgb) / 0.22);
+  background-color: rgba(6, 182, 212, 0.18);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ow-dot-ticker {
     animation: none;
-    background-color: rgb(var(--dls-accent-rgb) / 0.6);
+    background-color: rgba(6, 182, 212, 0.6);
   }
 }
 
-/* Sweep under the active boot checkpoint. Stays in CSS so the gateway can poll
-   without an endless JS animation competing for the main thread. */
 @keyframes ow-stage-shimmer {
   0% {
     transform: translateX(-100%);
@@ -551,47 +596,76 @@ select:disabled {
   }
 }
 
+/* RJ gradient glow on focused/active elements */
+.rj-glow {
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.rj-gradient-text {
+  background: var(--rj-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.rj-gradient-border {
+  position: relative;
+}
+
+.rj-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--rj-gradient);
+  z-index: -1;
+  opacity: 0.6;
+}
+
 .dark,
 [data-theme="dark"] {
-  --background: var(--slate-1);
-  --foreground: var(--slate-12);
-  --card: var(--slate-2);
-  --card-foreground: var(--slate-12);
-  --popover: var(--slate-2);
-  --popover-foreground: var(--slate-12);
-  --popover-border: var(--slate-5);
-  --primary: var(--blue-10);
-  --primary-foreground: var(--slate-12);
-  --secondary: var(--slate-3);
-  --secondary-foreground: var(--slate-12);
-  --muted: var(--slate-3);
-  --muted-foreground: var(--slate-10);
-  --accent: var(--slate-3);
-  --accent-foreground: var(--slate-12);
+  --background: #030712;
+  --foreground: #f1f5f9;
+  --card: #070f1f;
+  --card-foreground: #f1f5f9;
+  --popover: #070f1f;
+  --popover-foreground: #f1f5f9;
+  --popover-border: #1a2744;
+  --primary: #06b6d4;
+  --primary-foreground: #030712;
+  --secondary: #0d1829;
+  --secondary-foreground: #f1f5f9;
+  --muted: #0d1829;
+  --muted-foreground: #64748b;
+  --accent: #0d1829;
+  --accent-foreground: #f1f5f9;
   --destructive: var(--red-9);
   --warning: var(--amber-11);
-  --border: var(--slate-3);
-  --input: var(--slate-6);
-  --ring: var(--slate-8);
-  --chart-1: var(--sky-9);
-  --chart-2: var(--blue-9);
-  --chart-3: var(--indigo-9);
-  --chart-4: var(--violet-9);
+  --border: #1a2744;
+  --input: #162035;
+  --ring: #06b6d4;
+  --chart-1: #06b6d4;
+  --chart-2: #ec4899;
+  --chart-3: var(--violet-9);
+  --chart-4: var(--indigo-9);
   --chart-5: var(--purple-9);
-  --sidebar: var(--slate-2);
-  --sidebar-foreground: var(--slate-12);
-  --sidebar-primary: var(--blue-9);
-  --sidebar-primary-foreground: var(--slate-12);
-  --sidebar-accent: var(--slate-3);
-  --sidebar-accent-foreground: var(--slate-12);
-  --sidebar-border: var(--slate-6);
-  --sidebar-ring: var(--slate-8);
+  --sidebar: #050d1a;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #06b6d4;
+  --sidebar-primary-foreground: #030712;
+  --sidebar-accent: #0d1829;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #1a2744;
+  --sidebar-ring: #06b6d4;
 }
 
 @theme inline {
-  --font-sans: -apple-system, BlinkMacSystemFont, system-ui, ui-sans-serif, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-heading: -apple-system, BlinkMacSystemFont, system-ui, ui-sans-serif, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, system-ui, ui-sans-serif, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Poppins Variable", "Poppins", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: "Space Grotesk Variable", "Space Grotesk", "Fira Code", "Cascadia Code", ui-monospace, monospace;
   --text-sm: 0.8125rem;
+  --color-rj-cyan: #06b6d4;
+  --color-rj-pink: #ec4899;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -643,5 +717,8 @@ select:disabled {
   }
   html {
     @apply font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
 }

@@ -1,100 +1,136 @@
-# OpenWork
+# RJ Business Solutions Workspace
 
-OpenWork is a free, open-source desktop app made for sharing AI workflows. It is an open-source alternative to Claude Cowork and Codex for macOS, Windows, and Linux.
+> Full-stack AI workspace built on OpenWork — branded, wired, and deployed for Rick Jefferson's operation.
 
-Add one OpenWork MCP to Codex, Claude Code, Cursor, or another compatible agent and reuse the same skills, MCPs, and connected services across your tools, teammates, and machines. Create something once, share it with coworkers or friends, or keep it for yourself.
+[![Built by RJ Business Solutions](https://img.shields.io/badge/Built%20by-RJ%20Business%20Solutions-06b6d4?style=for-the-badge)](https://rjbusinesssolutions.org)
+[![Powered by Claude](https://img.shields.io/badge/AI-Claude%20%2B%20Kimi%20K3-ec4899?style=for-the-badge)](https://anthropic.com)
+[![Cloudflare Workers](https://img.shields.io/badge/Backend-Cloudflare%20Workers-f38020?style=for-the-badge)](https://workers.cloudflare.com)
 
-The desktop app is there when you want a dedicated workspace, but it is not required. You can use OpenWork from the agent you already have. For larger organizations, the admin interface lets you publish capabilities, manage access, and configure shared or per-user connections.
+---
 
-[**Download OpenWork**](https://openworklabs.com/download)
+## What This Is
 
-<img width="1481" height="842" alt="OpenWork desktop app" src="https://github.com/user-attachments/assets/66a8dd9b-5260-488c-957d-e54331e78c1c" />
+This is Rick Jefferson's personal AI workspace — a fork of [OpenWork](https://github.com/different-ai/openwork) customized with:
 
-## Install with your AI agent
+- **Full RJ Business Solutions branding** — Cyan #06b6d4 → Pink #ec4899, #030712 dark, Poppins/Inter/Space Grotesk
+- **SUPREME META AGI v10.2** system prompt — pre-loaded as the default agent persona
+- **JUKEYMAN v1.8.2** integration — the live Cloudflare Workers email + content fleet
+- **GoHighLevel CRM** skill — contact management, funnels, automations
+- **Stripe** adapter — subscriptions, webhooks, customer portal
+- **Cloudflare full-stack** skill — D1, KV, R2, Workers, Queues, Pages
+- **Kimi K3** (moonshotai/kimi-k2) via OpenRouter — primary long-context model
+- **Claude** (claude-sonnet-4-6 / claude-opus-5) — primary reasoning model
+- **Higgsfield AI** — cinematic video generation
+- **`packages/rj-integrations`** — typed adapters for GHL, Stripe, JUKEYMAN, Cloudflare
 
-Already use an AI agent? Copy this prompt and paste it into Claude Code, Cursor, Codex, ChatGPT, or any agent that can run commands on your computer.
+---
 
-```text
-Install OpenWork on my computer, set up my first workspace, and open it ready to use. Follow the steps in https://openworklabs.com/start.md?v=hero
+## Quick Start
+
+```powershell
+# Install dependencies
+pnpm install
+
+# Start the workspace (web mode)
+pnpm dev
+
+# Start the desktop Electron app
+pnpm dev:app
 ```
 
-1. Installs OpenWork
-2. Creates your workspace
-3. Opens it ready to run
+---
 
-## Use OpenWork from any agent
+## AI Providers Configured
 
-The OpenWork MCP brings your assigned skills, plugins, MCP connections, Google Workspace, and Microsoft 365 capabilities into any compatible agent.
+| Provider | Models | Use case |
+|---|---|---|
+| Anthropic (Claude) | claude-opus-5, claude-sonnet-4-6 | Primary reasoning, code |
+| OpenRouter (Kimi K3) | moonshotai/kimi-k2 | Long-form copy, email, 128K context |
+| Cloudflare Workers AI | llama-4-scout, llama-3.3-70b | Edge inference, fast tasks |
 
-It exposes two tools: `search_capabilities` finds what you can use, and `execute_capability` runs it. After adding the MCP, your client opens a browser so you can sign in and choose your OpenWork organization.
+---
 
-### Codex
+## MCP Servers Bundled
 
-```bash
-codex mcp add openwork --url https://api.openworklabs.com/mcp/agent
+| Server | Endpoint | Purpose |
+|---|---|---|
+| rj-jukeyman | Workers URL | Email fleet + content generation |
+| rj-cloudflare | npx @cloudflare/mcp | Full infra control |
+| rj-github | npx MCP server | rjbizsolution23-wq repos |
+| rj-stripe | npx @stripe/mcp | Payments + billing |
+| rj-filesystem | npx MCP server | Local file access |
+| rj-memory | npx MCP server | Persistent knowledge graph |
+| higgsfield | HTTP MCP | Video generation |
+
+---
+
+## Skills Pre-Installed
+
+| Skill | What it does |
+|---|---|
+| `rj-jukeyman` | JUKEYMAN email orchestration — email in → K3 builds → deploys → sends URL |
+| `rj-ghl` | GoHighLevel CRM — contacts, funnels, campaigns, pipelines |
+| `rj-cloudflare` | Cloudflare deployment — Workers, D1, KV, R2, Queues |
+| `rj-stripe` | Stripe billing — subscriptions, webhooks, customer portal |
+| `rj-content-engine` | AI content suite — video, images, copy, emails, social |
+| `rj-supreme-agi` | SUPREME META AGI v10.2 — full autonomy persona and prime directive |
+
+---
+
+## Brand
+
+```
+Company:  RJ Business Solutions
+Website:  https://rjbusinesssolutions.org
+Email:    rickjefferson@rickjeffersonsolutions.com
+GitHub:   rjbizsolution23-wq
+Address:  1342 NM 333, Tijeras, New Mexico 87059
+
+Colors:
+  Primary:  #06b6d4 (cyan) → #ec4899 (pink)
+  Dark bg:  #030712
+  Success:  #10b981
+
+Fonts:
+  Heading: Poppins 700/800
+  Body:    Inter 400/500
+  Mono:    Space Grotesk 500/600
 ```
 
-### Claude Code
+---
 
-```bash
-claude mcp add --transport http openwork https://api.openworklabs.com/mcp/agent
+## Branch Strategy
+
+- `dev` — upstream OpenWork (pull updates here)
+- `rj-business-solutions` — Rick's branded fork (this branch)
+
+To pull upstream improvements: `git merge upstream/dev` from the `rj-business-solutions` branch.
+
+---
+
+## Architecture
+
+```
+rjbizsolution23-wq/openwork (rj-business-solutions branch)
+├── apps/
+│   ├── app/          — React + Vite frontend (RJ branded)
+│   ├── desktop/      — Electron shell
+│   └── server/       — Node.js backend
+├── packages/
+│   ├── rj-integrations/  — GHL, Stripe, JUKEYMAN, Cloudflare adapters
+│   └── [openwork packages]
+└── .opencode/
+    ├── opencode.json     — AI providers + MCP servers + RJ system prompt
+    ├── skills/
+    │   ├── rj-jukeyman/
+    │   ├── rj-ghl/
+    │   ├── rj-cloudflare/
+    │   ├── rj-stripe/
+    │   ├── rj-content-engine/
+    │   └── rj-supreme-agi/
+    └── agents/
 ```
 
-### OpenCode
+---
 
-Add this to `opencode.json`:
-
-```json
-{
-  "mcp": {
-    "openwork": {
-      "type": "remote",
-      "enabled": true,
-      "url": "https://api.openworklabs.com/mcp/agent",
-      "oauth": {}
-    }
-  }
-}
-```
-
-### Any MCP client
-
-Use this remote MCP server URL:
-
-```text
-https://api.openworklabs.com/mcp/agent
-```
-
-## OpenWork Den
-
-OpenWork Den is the control plane for managing OpenWork across a team or organization.
-
-- Provision inference at scale and control which members and teams can use each model provider.
-- Invite teammates, create teams, and manage access from one place.
-- Set desktop policies, restrict local model access, and control which app versions your organization can use.
-- Publish skills and plugins through marketplaces, then assign them to the organization, a team, or specific people.
-- Import Anthropic-compatible plugins and make their supported skills and remote MCPs available through the OpenWork MCP.
-
-<img width="1546" height="915" alt="OpenWork Den organization control plane" src="https://github.com/user-attachments/assets/033dbbfe-5661-4f7c-869c-46278406d6cc" />
-
-## Documentation
-
-[Read the OpenWork docs.](https://openworklabs.com/docs)
-
-## Local development
-
-For one checkout, keep using `pnpm dev`; with no extra environment variables it reuses the existing shared dev profile.
-
-To run multiple git worktrees at once, use:
-
-```bash
-pnpm dev:worktree
-```
-
-That sets `OPENWORK_DEV_PROFILE=auto`, derives a stable profile name from the worktree path, lets Electron choose a free CDP port, and asks Vite for a free dev-server port. You can also choose a named profile, for example `OPENWORK_DEV_PROFILE=my-feature OPENWORK_ELECTRON_REMOTE_DEBUG_PORT=0 PORT=0 pnpm dev`.
-
-`dev:worktree` also defaults `OPENWORK_ELECTRON_USE_MOCK_KEYCHAIN=1`. A brand-new profile has no stored credentials, so on macOS the real keychain prompts as soon as Chromium persists an authenticated cookie, and that modal blocks Electron's main loop until it is dismissed. Set `OPENWORK_ELECTRON_USE_MOCK_KEYCHAIN=0` if you specifically want the system keychain in an isolated profile.
-
-Dev startup prints a banner like `[openwork] dev profile=... cdp=http://127.0.0.1:9223`; use it to find the profile directory and pass the CDP URL to local tooling.
-
-If a second instance cannot get the profile lock it now says so and exits, instead of lingering with an open CDP port and no window.
+*Built for Rick Jefferson — RJ Business Solutions | August 6, 2026*

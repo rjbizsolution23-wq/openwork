@@ -3,23 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenWork</title>
+    <title>RJ Business Solutions Workspace</title>
 
-    <link rel="icon" type="image/svg+xml" href="/openwork-mark.svg" />
+    <link rel="icon" type="image/svg+xml" href="/rj-logo.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="description" content="RJ Business Solutions — AI Workspace powered by Claude, Kimi K3, and Cloudflare Workers AI" />
+    <meta property="og:title" content="RJ Business Solutions Workspace" />
+    <meta property="og:description" content="Full-stack AI workspace for RJ Business Solutions" />
+    <meta property="og:image" content="/rj-og.png" />
     <script>
       (function () {
         try {
-          var mode = localStorage.getItem("openwork.themePref") || "system";
+          var stored = localStorage.getItem("openwork.react.settings.theme-mode");
+          if (!stored) {
+            var legacy = localStorage.getItem("openwork.themePref") || localStorage.getItem("rj.themePref");
+            if (legacy) stored = legacy;
+          }
+          var mode = stored || "dark";
           var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
           var resolved = mode === "dark" || (mode === "system" && prefersDark) ? "dark" : "light";
           document.documentElement.dataset.theme = resolved;
           document.documentElement.style.colorScheme = resolved;
         } catch (e) {
-          document.documentElement.dataset.theme = "light";
-          document.documentElement.style.colorScheme = "light";
+          document.documentElement.dataset.theme = "dark";
+          document.documentElement.style.colorScheme = "dark";
         }
       })();
     </script>
