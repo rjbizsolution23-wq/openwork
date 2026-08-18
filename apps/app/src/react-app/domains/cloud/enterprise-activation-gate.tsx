@@ -59,11 +59,11 @@ function EnterpriseActivationPage() {
         >
           <div className="flex items-center gap-2.5">
             <img
-              src={resolveExtensionIconSrc("/openwork-mark.svg")}
+              src={resolveExtensionIconSrc("/rj-logo.svg")}
               alt=""
               width={26}
               height={26}
-              className="max-h-[26px] shrink-0 object-contain object-left dark:invert"
+              className="max-h-[26px] shrink-0 object-contain object-left"
               aria-hidden="true"
             />
             <span className="text-[15px] font-semibold tracking-tight text-foreground">

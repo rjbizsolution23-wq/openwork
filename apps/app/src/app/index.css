@@ -10,7 +10,11 @@
 @import "katex/dist/katex.min.css";
 
 /* RJ Business Solutions — Poppins (headings) + Inter (body) + Space Grotesk (mono/data) */
-@import "@fontsource-variable/poppins";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/space-grotesk";
 

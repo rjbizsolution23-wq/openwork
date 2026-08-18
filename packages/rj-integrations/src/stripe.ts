@@ -48,9 +48,20 @@ export async function verifyStripeWebhook(
     .map((b) => b.toString(16).padStart(2, '0'))
     .join('');
 
-  return crypto.timingSafeEqual
-    ? crypto.timingSafeEqual(Buffer.from(computed), Buffer.from(v1))
-    : computed === v1;
+  return timingSafeEqualHex(computed, v1);
+}
+
+/**
+ * Constant-time string comparison (portable — works in Workers, Node, and browsers
+ * without relying on runtime-specific APIs like node:crypto.timingSafeEqual).
+ */
+function timingSafeEqualHex(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) {
+    diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return diff === 0;
 }
 
 /**
